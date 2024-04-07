@@ -1,19 +1,16 @@
+// index.js
 const express = require("express");
-const cors = require("cors");
-const db = require("./db");
+const bodyParser = require("body-parser");
+const userRoutes = require("./routes/users");
 
 const app = express();
+const PORT = 3000;
 
-port = 3000;
+app.use(bodyParser.json());
 
-app.use(cors());
-app.use(express.json());
+// Routes
+app.use("/users", userRoutes);
 
-// router, callback - 해당 루트로 접속 시 보낼 거
-app.get("/", (req, res) => {
-  res.send(`<h1>hello world!</h1>`);
-});
-
-app.listen(port, () => {
-  console.log(`server on port ${port}!`);
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
