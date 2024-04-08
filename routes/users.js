@@ -1,10 +1,13 @@
-// routes/users.js
 const express = require("express");
 const router = express.Router();
+const {
+  signUp,
+  signIn,
+  setUserProfile,
+} = require("../controllers/usersController");
 
-const userController = require("../controllers/userController");
-
-router.post("/signup", userController.signup); // Updated reference to the signup function
-router.post("/signin", userController.signin); // Updated reference to the signin function
+router.post("/signup", signUp);
+router.post("/signin", signIn);
+router.post("/setUserProfile", setUserProfile);
 
 module.exports = router;
