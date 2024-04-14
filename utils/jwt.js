@@ -4,7 +4,7 @@ require("dotenv").config();
 const generateAccessToken = (uid) => {
   return jwt.sign({ uid }, process.env.JWT_ACCESS_TOKEN_SECRET, {
     expiresIn: "15m",
-  });
+  }); 
 };
 
 const generateRefreshToken = (uid) => {
